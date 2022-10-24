@@ -3,7 +3,8 @@ import {
 } from "react-router-dom";
 
 import IndexPage from "./Pages";
-import AboutPage from "./Pages/about"
+import AdminPage from "./Pages/Admin/index"
+
 
 export const router = createBrowserRouter([
     {
@@ -11,7 +12,7 @@ export const router = createBrowserRouter([
         element: <IndexPage />
     },
     {
-        path: "/about",
-        element: <AboutPage />
+        path: "/admin",
+        element: <AdminPage />
     }
 ])
