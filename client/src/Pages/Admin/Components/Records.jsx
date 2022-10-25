@@ -1,21 +1,20 @@
 import React from "react";
+import {Single} from "./Single";
+// function Record({record}) {
+//     return (
+        
+//     )
+// }
 
-function Record(record, recordNo) {
-    return (
-        <tr key={record._id} >
-            <td>{recordNo}</td>
-            <td>{record.username}</td>
-            <td>{record.description}</td>
-        </ tr>
-    )
-}
-
-function test(records) {
+function retest(records) {
     console.log(records)
 }
 
 
-export default async function Records(records) {
+export default async function Records({data}) {
+    
+    const records = data
+    console.log(records)
 
     return (
         <table className="patients">
@@ -29,9 +28,9 @@ export default async function Records(records) {
                 </tr>
             </thead>
             <tbody>
-                {records.map((record, recordNo) => {
-                    <Record record={record} recordNo={recordNo} />
-                })}
+                
+                    {records.map((record) => {return <Single record = {record}/>})}
+                
             </tbody>
 
         </table>

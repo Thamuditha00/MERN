@@ -32,13 +32,30 @@ router.post("/delete", (req, res) => {
 })
 
 router.post("/create", async (req, res) => {
-    const user = new userModel(req.body)
-    try {
-        await user.save()
-        res.send({ message: "User created successfully" })
-    } catch (err) {
-        res.send(err)
-    }
+    // const user = new userModel(req.body)
+    // try {
+    //     await user.save()
+    //     res.send({ message: "User created successfully" })
+    // } catch (err) {
+    //     res.send(err)
+    // }
+    userModel.register( new userModel({username: req.body.username, description: req.body.description}, req.body.password, (err, user) => {
+        if (err) {
+            res.send({message: "Failed to register user", err : err})
+        }
+        else {
+            req.login(user, (err) => {
+                if (err) {
+                    res.send({message: "Failed to register user", err : err})
+                }
+                else {
+                    res.send({message: "User registered successfully"})
+                }
+            })
+        }
+        
+
+    }))
 })
 
 router.post("/update", (req, res) => {

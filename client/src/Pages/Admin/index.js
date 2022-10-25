@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
+import  ReactDOM  from "react-dom/client"
 import Records from "./Components/Records"
 import CreateForm from "./Components/createForm.jsx"
 import DeleteForm from "./Components/deleteForms.jsx"
@@ -11,12 +12,12 @@ export default function AdminPage(props) {
 
     const [operation, setOperation] = useState("")
     const [message, setMessage] = useState("")
-    const records = useRef([])
+    const [records,setRecords] = useState([])
 
 
     useEffect(() => {
 
-    }, [records])
+    }, [])
 
     function renderSwitch() {
         switch (operation) {
@@ -33,13 +34,30 @@ export default function AdminPage(props) {
     async function getUsers() {
         const c = await retrieve.getRecords().
             then((response) => {
-                records.current = response
+                //
+                console.log(response)
+                const r = ReactDOM.createRoot(document.getElementById("right"));
+                r.render(<Records data = {response}/>)
+                //
+                // setRecords(response.map( (record, no) => {
+                //     <tr key={record._id} >
+                //         <td>{no}</td>
+                //         <td>{record.username}</td>
+                //         <td>{record.description}</td>
+                //     </ tr>
+                // } ))
             })
     }
 
-    function displayRecords(r) {
-        console.log(r.current)
-    }
+    function RenderRecords() {
+        return records.map( (record, recordNo) => {
+            console.log(record)
+        // <tr key={record._id} >
+        //     <td>{recordNo}</td>
+        //     <td>{record.username}</td>
+        //     <td>{record.description}</td>
+        // </ tr>
+    })}
 
     return (
         <div className="container">
@@ -70,12 +88,12 @@ export default function AdminPage(props) {
 
                     </div>
 
-                    <div className="right">
+                    <div className="right" id="right">
 
 
-                        {records.current.length === 0
+                        {records.length === 0
                             ? <h2>Select an operation</h2>
-                            : <h2> case ekak ne</h2>
+                            : <p>hello</p>
 
 
                         }

@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
+const passportLocalMongose = require("passport-local-mongoose")
 
 mongoose.connect("mongodb://localhost:27017/mern")
 
@@ -11,13 +12,14 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
     },
     description: {
         type: String,
         required: true
     }
 })
+
+UserSchema.plugin(passportLocalMongose)
 
 const User = mongoose.model("User", UserSchema)
 
