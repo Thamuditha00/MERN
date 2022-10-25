@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght2200;300;400;500;600;700&display=swap');
+
+/* real project css */
+*, *::after, *::before, .root{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    background-color: rgb(255, 255, 255);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a:hover, button:hover{
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar{
+    height: 60px;
+    width: 100%;
+}
+
+.main{
+    display: flex;
+    height: calc(100vh - 60px);
+    width: 100%;
+    flex-direction: row;
+}
+
+.sidemenu{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 12%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    background-color: rgb(255, 255, 255);
+}
+
+.views{
+    margin-left: 10px;
+    display: flex;
+    width: 90%;
+    height: 100%;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.left{
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    display: flex;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.right{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+/* navigation bar */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #15bad3;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 20px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #15bad3;
+}
+
+/* side menu */
+.sidemenu ul {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+.sidemenu li {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+.sidemenu li a {
+    display: block;
+    color: rgb(42, 42, 42);
+    padding: 20px 16px;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: rgba(0, 0, 0, 0.085) solid;
+    border-width: 1px;
+}
+
+.sidemenu ul li:last-child a{
+    color: rgb(233, 28, 28);
+}
+.sidemenu ul li:last-child a:hover{
+    color: rgb(244, 244, 244);
+    background-color: rgb(226, 171, 167);
+}
+
+.sidemenu li a:hover{
+    color: rgb(244, 244, 244);
+    background-color: rgb(162, 162, 162);
+}
+
+/* form */
+form {
+    font-size: 15px;
+    margin: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7); 
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+input, select{
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+input{
+    height: 20px;
+}
+input::placeholder {
+    color: rgb(90, 90, 90);
+}
+option:focus {
+    border: none;
+}
+option {
+    display: block;
+    height: 200px;
+    border: none;
+}
+label{
+    display: none;
+    margin-bottom: 10px;
+}
+.btn-item, button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px; 
+    border: none;
+    background: #15bad3; 
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+}
+.btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+}
+button {
+    width: 100%;
+}
+button:hover, .btn-item:hover {
+    background: rgb(16, 105, 40);
+}
+
+/* table */
+.details{
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.details::-webkit-scrollbar{
+    display: none;
+}
+.wards {
+    position: relative;
+    border-collapse: collapse;
+    width: 100%; 
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.wards td, .wards th {
+    padding: 10px;
+}
+
+.wards tr:nth-child(even){background-color: #f2f2f2;}
+
+.wards tr:hover {background-color: #ddd;}
+
+.wards th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #15bad3;
+    color: white;
+}
+.wards th:not(:last-child){
+    border-right: #063b2443 solid;
+}
+.wards tr td:not(:last-child){
+    border-right: rgba(0, 0, 0, 0.199) solid;
+}
+.wards tr td:nth-last-child(2) a{padding: 5px; color: white; background-color: #24a8c6; text-decoration: none; border-radius: 3px;}
+.wards tr td:nth-last-child(1) a{padding: 5px 8px; color: white; background-color: #dd512f; text-decoration: none; border-radius: 3px;}
+.wards tr td:nth-last-child(2) a:hover{background-color: #1b8aa3; }
+.wards tr td:nth-last-child(1) a:hover{background-color: #c24628; }
+
+td:nth-last-child(2) {
+    padding-left: calc(2%);
+    justify-content: center;
+}
+td:nth-last-child(1) {
+    padding-left: calc(8%);
+    display: flex;
+    justify-content: center;
+}
+
+.right h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+}
